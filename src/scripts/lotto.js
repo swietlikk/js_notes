@@ -3,7 +3,7 @@ const inputRefs = [...document.querySelectorAll('form input[id^="digit-"]')];
 const resultsRef = document.querySelector('#results');
 
 
-const isNotEmpty = (value) => value.trim() !== '';
+const isNotEmpty = (value) => value.trim() !== ''; // przypisuje deklaracje funkcji i zwraca boolean, arrow fn, jeden parametr
 const isNotAllEmpty = (inputs) => inputs.every(isNotEmpty);
 
 const isInteger = (value) => !isNaN(parseInt(value));
@@ -18,9 +18,9 @@ const drawDigit = (amount = 6) => {
     const temp = [];
 
     while (temp.length < amount){
-        const digit = Math.floor(Math.random() * 48 + 1);
+        const digit = Math.floor(Math.random() * 48 + 1); // przypisuje wynik wywołania metody floor
         if (!temp.includes(digit)){
-            temp.push(digit);
+            temp.push(digit);   // wywołanie metody push z obiektu digit
         }
     }
 
@@ -30,7 +30,7 @@ const drawDigit = (amount = 6) => {
 const checkHits = (userDigits, drawnDigits) => {
     const hits = [];
 
-    for (const digit of userDigits){
+    for (const digit of userDigits){    // for off dla kazdego elementu tablicy digits tworze zmienna digit czyli dla kazdego elementu
         if (drawnDigits.includes(digit)) {
             hits.push(digit);
         }
@@ -40,9 +40,9 @@ const checkHits = (userDigits, drawnDigits) => {
 }
 
 const showResults = (hits) => {
-    let message = '';
+    let message = ''; // pusty string
 
-    if (hits.length === 0){
+    if (hits.length === 0){  //pole length obiektu hits jeżeli zwróci true , reinicjalizuje zmienną stringiem
         message += 'Spróbuj jeszcze raz. Na pewno wygrasz! 🏆'
     } else {
         message += `Wygrałeś! Trafiłeś ${hits.length} liczb. Twoje liczby to ${hits.join(", ")}. 🤑`
