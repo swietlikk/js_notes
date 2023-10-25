@@ -86,34 +86,140 @@ rock_bands = [
 ]
 
 // 1. Jakie zespoły rockowe były aktywne w latach 80. XX wieku, zgodnie z informacjami dostępnymi w liście "rock_bands"?
+//
+// const rockBands80s = rock_bands.filter(band => {
+//     if (band.years_active.includes("1980") || (band.years_active.includes("198") && !band.years_active.includes("1980-"))) {
+//         return true;
+//     }
+//     return false;
+// });
+//
+// const rockBandsNames80s = rockBands80s.map(band => band.name);
+// console.log(rockBandsNames80s);
+//
+// // 2. Które zespoły powielają nazwę kapeli "name" w  albumie "best_album ?
+//
+// const duplicatedAlbumsBands = rock_bands.filter(band => band.name === band.best_album);
+//
+// const duplicateBandsNames = duplicatedAlbumsBands.map(band => band.name);
+// console.log(duplicateBandsNames);
+//
+// // 3. Policz ilu artystów we wszystkich kapelach miało/ma na imie John.
+//
+// let johnCount = 0;
+//
+// rock_bands.forEach(band => {
+//     band.members.forEach(member => {
+//         if (member.includes("John")) {
+//             johnCount++;
+//         }
+//     });
+// });
 
-const rockBands80s = rock_bands.filter(band => {
-    if (band.years_active.includes("1980") || (band.years_active.includes("198") && !band.years_active.includes("1980-"))) {
-        return true;
-    }
-    return false;
-});
+// console.log(johnCount);
 
-const rockBandsNames80s = rockBands80s.map(band => band.name);
-console.log(rockBandsNames80s);
 
-// 2. Które zespoły powielają nazwę kapeli "name" w  albumie "best_album ?
 
-const duplicatedAlbumsBands = rock_bands.filter(band => band.name === band.best_album);
+let diving = [
+    {
+        name: "The Great Blue Hole",
+        number_of_dives: 20000,
+        depth: 124,
+        dive_length: 40,
+        country: "Belize"
 
-const duplicateBandsNames = duplicatedAlbumsBands.map(band => band.name);
-console.log(duplicateBandsNames);
+    },
 
-// 3. Policz ilu artystów we wszystkich kapelach miało/ma na imie John.
+    {
+        name: "The Great Barrier Reef",
+        number_of_dives: 1000000,
+        depth: 30,
+        dive_length: 60,
+        country: "Australia"
 
-let johnCount = 0;
+    },
+    {
+        name: "Galapagos",
+        number_of_dives: 5000,
+        depth: 30,
+        dive_length:60,
+        country: "Ecuador"
 
-rock_bands.forEach(band => {
-    band.members.forEach(member => {
-        if (member.includes("John")) {
-            johnCount++;
-        }
-    });
-});
+    },
+    {
+        name: "Palau",
+        number_of_dives:5000,
+        depth:40,
+        dive_length:60,
+        country: "Palau"
 
-console.log(johnCount);
+    },
+    {
+        name: "Cenotes",
+        number_of_dives:100000,
+        depth: 40,
+        dive_length:50,
+        country: "Mexico"
+
+    },
+    {
+        name: "Blue Hole",
+        number_of_dives:5000,
+        depth: 80,
+        dive_length:40,
+        country: "Malta"
+
+    },
+    {
+        name: "Kimbe Bay ",
+        number_of_dives:8000,
+        depth: 40,
+        dive_length:50,
+        country: "Papua New Guinea"
+
+    },
+    {
+        name: "Maldives",
+        number_of_dives:2000000,
+        depth: 30,
+        dive_length:60,
+        country: "Maldives"
+
+    },
+    {
+        name: "Red Sea ",
+        number_of_dives:2000000,
+        depth: 40,
+        dive_length:60,
+        country: ['Egypt', 'Jordan', 'Saudi Arabia']
+
+    },
+    {
+        name: "Azores",
+        number_of_dives:10000,
+        depth: 40,
+        dive_length:40,
+        country: "Portugal"
+
+    },
+]
+
+
+//Zadanie 1.
+//Znajdź wszystkie miejsca nurkowe, w których długość nurkowania wynosi 50 min.
+
+const diveLength50 = diving.filter(site => site.dive_length === 50);
+// console.log(diveLength50);
+
+//Zadanie 2.
+//Zwróć obiekty zawierające więcej niż 1mln nurkowań.
+
+const millionDives = diving.filter(site => site.number_of_dives > 1000000);
+// console.log(millionDives);
+
+
+//Zadanie 3.
+//Oblicz  średnią głębokość nurkowań  dla wszystkich obiektów.
+
+const averageDepth = diving.reduce((total, site) => total + site.depth, 0) / diving.length;
+// console.log(averageDepth);
